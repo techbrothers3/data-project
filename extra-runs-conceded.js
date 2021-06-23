@@ -8,19 +8,18 @@ csvtojson()
 })
 function myFunction(json) {
     let map = {};
-    for(var i = 0; i<json.length; i++) {
-        if (i >= 136355) {
-            for(i; i<json.length; i++) {
-                if(map[json[i].bowling_team] != undefined) {
-                    var count = map[json[i].bowling_team];
-                    count += parseInt(json[i].extra_runs);
-                    map[json[i].bowling_team] = count;
-                } else {
-                    map[json[i].bowling_team] = parseInt(json[i].extra_runs);
-                    
-                }
-            }
+    for(var i = 136366; i<json.length; i++) {
+        
+        if(map[json[i].bowling_team] != undefined) {
+            var count = map[json[i].bowling_team];
+            count += parseInt(json[i].extra_runs);
+            map[json[i].bowling_team] = count;
+        } else {
+            map[json[i].bowling_team] = parseInt(json[i].extra_runs);
+            
         }
+        
+        
     }
     return map;
 }
