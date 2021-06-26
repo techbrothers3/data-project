@@ -1,5 +1,5 @@
 const csvtojson = require('csvtojson');
-const csvfilepath = "/home/mohammed/Documents/muaaz/data-project/archive/deliveries.csv";
+const csvfilepath = "/Users/Mohammed.Shoeb/Documents/shoeb/data-project/archive/deliveries.csv";
 csvtojson()
 .fromFile(csvfilepath)
 .then((json) =>{
