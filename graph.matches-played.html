@@ -15,7 +15,16 @@
         <div class = "col-sm-6 col-md-6">
             <div id = "container1"></div>
         </div>
-        <div class = "col-sm-6 col-md-6"></div>
+        <div class = "col-sm-6 col-md-6">
+            <div id = "container2"> </div>
+        </div>
+        <div class = "col-sm-6 col-md-6">
+            <div id = "container3"> </div>
+        </div>
+        <div class = "col-sm-6 col-md-6">
+            <div id = "container4"> </div>
+        </div>
+
         <div class = "col-sm-6 col-md-6"></div>
         <div class = "col-sm-6 col-md-6"></div>
     </div>
@@ -36,29 +45,39 @@
     
     $(function() {
         // console.log(resJson, "printing from script")
+        let xAxisValues = []
+        let yAxisValues = []
+
+        let resObj = {
+                '2008': 58,
+                '2009': 57,
+                '2010': 60,
+                '2011': 73,
+                '2012': 74,
+                '2013': 76,
+                '2014': 60,
+                '2015': 59,
+                '2016': 60,
+                '2017': 59 
+            }
+
+        for (key in resObj) {
+            xAxisValues.push(key)
+            yAxisValues.push(resObj[key])
+        }
     $('#container1').highcharts( {
         
        
     title: {
-        text: 'Solar Employment Growth by Sector, 2010-2016'
+        text: 'Matches-Played per year'
     },
 
     subtitle: {
         text: 'Source: thesolarfoundation.com'
     },
 
-    yAxis: {
-       
-        title: {
-            text: 'Number of Employees'
-        }
-        
-        
-        
-    },
-
     xAxis: {
-        categories: ['Apples', 'Bananas', 'Oranges','grapes']
+        categories: xAxisValues
     },
 
     legend: {
@@ -77,8 +96,8 @@
     },
 
     series: [{
-        name: 'Matches-won',
-        data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
+        name: 'Matches-Played',
+        data: yAxisValues
     } 
     // {
     //     name: 'Manufacturing',
@@ -117,6 +136,349 @@
 
 
 
+</script>
+<script type="text/javascript">
+    $(function() {
+        let i = 0;
+        let xAxisValues = []
+        let yAxisValues = []
+
+        let resObj = {
+            'Sunrisers Hyderabad': 42,
+            'Rising Pune Supergiant': 10,
+            'Kolkata Knight Riders': 77,
+            'Kings XI Punjab': 70,
+            'Royal Challengers Bangalore': 73,
+            'Mumbai Indians': 92,
+            'Delhi Daredevils': 62,
+            'Gujarat Lions': 13,
+            'Chennai Super Kings': 79,
+            'Rajasthan Royals': 63,
+            'Deccan Chargers': 29,
+            'Pune Warriors': 12,
+            'Kochi Tuskers Kerala': 6,
+            'Rising Pune Supergiants': 5
+        }
+
+        for (key in resObj) {
+            xAxisValues.push(key)
+            yAxisValues.push(resObj[key])
+        }
+
+    $('#container2').highcharts( {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Total Matches Won Till 2017'
+        },
+       
+        accessibility: {
+            announceNewData: {
+                enabled: true
+            }
+        },
+        xAxis: {
+            type: 'category'
+        },
+        yAxis: {
+            title: {
+                text: 'Total Matches'
+            }
+
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            series: {
+                borderWidth: 0,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.y:1f}'
+                }
+            }
+        },
+        
+        series: [
+            {
+                colorByPoint: true,
+                
+                data: [
+                    
+                    {
+                        name: xAxisValues[i],
+                    
+                        y: yAxisValues[i],
+                        drilldown: xAxisValues[i]
+                    },
+                    
+                    {
+                        name: "Rising Pune Supergiants",
+                        y: yAxisValues[1]+5,
+                        drilldown: "Rising Pune Supergiants"
+                    },
+                    {
+                        name: "Kolkata Knight Riders",
+                        y: yAxisValues[2],
+                        drilldown: "Kolkata Knight Riders"
+                    },
+                    {
+                        name: "Kings XI Punjab",
+                        y: yAxisValues[3],
+                        drilldown: "Kings XI Punjab", 
+                         
+                    },
+                    {
+                        name: "Royal Challengers Bangalore",
+                        y: yAxisValues[4],
+                        drilldown: "Royal Challengers Bangalore"
+                    },
+                    {
+                        name: "Mumbai Indians",
+                        y: yAxisValues[5],
+                        drilldown: "Mumbai Indians"
+                    },
+                    {
+                        name: "Delhi Daredevils",
+                        y: yAxisValues[6],
+                        drilldown: "Delhi Daredevils"
+                    },
+                    {
+                        name: "Gujarat Lions",
+                        y: yAxisValues[7],
+                        drilldown: "Gujarat Lions"
+                    },
+                    {
+                        name: "Chennai Super Kings",
+                        y: yAxisValues[8],
+                        drilldown: "Chennai Super Kings"
+                    },
+                    {
+                        name: "Rajasthan Royals",
+                        y: yAxisValues[9],
+                        drilldown: "Rajasthan Royals"
+                    },
+                    {
+                        name: "Deccan Chargers",
+                        y: yAxisValues[10],
+                        drilldown: "Deccan Chargers"
+                    },
+                    {
+                        name: "Pune Warriors",
+                        y: yAxisValues[11],
+                        drilldown: "Pune Warriors"
+                    },
+                    {
+                        name: "Kochi Tuskers Kerala",
+                        y: yAxisValues[12],
+                        drilldown: "Kochi Tuskers Kerala"
+                    }
+                    
+                    
+                ]
+            }
+        ],
+    });
+    });
+</script>
+<script type="text/javascript">
+  // var xmlhttp = new XMLHttpRequest();
+    // var url = "";
+    // xmlhttp.open("GET",url,true);
+    // xmlhttp.send();
+    // xmlhttp.onreadystatechange = function (){
+    //     var data = JSON.parse(this.responseText);
+    //     var teams = data.m.map(function(elem)) {
+    //         elem.
+    //     }
+    // }
+
+    
+    $(function() {
+        // console.log(resJson, "printing from script")
+        let xAxisValues = []
+        let yAxisValues = []
+
+        let resObj = { 
+            'Rising Pune Supergiants': 108,
+            'Mumbai Indians': 102,
+            'Kolkata Knight Riders': 122,
+            'Delhi Daredevils': 106,
+            'Gujarat Lions': 98,
+            'Kings XI Punjab': 100,
+            'Sunrisers Hyderabad': 107,
+            'Royal Challengers Bangalore': 156 
+        }
+
+
+        for (key in resObj) {
+            xAxisValues.push(key)
+            yAxisValues.push(resObj[key])
+        }
+    $('#container3').highcharts( {
+        
+       
+    title: {
+        text: 'Extra-Runs conceded in the year 2016'
+    },
+
+    subtitle: {
+        text: 'Source: thesolarfoundation.com'
+    },
+
+    xAxis: {
+        categories: xAxisValues
+    },
+
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+        series: {
+            label: {
+                connectorAllowed: false
+            },
+            
+        }
+    },
+
+    series: [{
+        name: 'Extra-Runs',
+        data: yAxisValues
+    } 
+    // {
+    //     name: 'Manufacturing',
+    //     data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
+    // }, {
+    //     name: 'Sales & Distribution',
+    //     data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
+    // }, {
+    //     name: 'Project Development',
+    //     data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
+    // }, {
+    //     name: 'Other',
+    //     data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
+    // }
+],
+
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom'
+                }
+            }
+        }]
+    }
+        
+
+
+    });
+});
+</script>
+<script type="text/javascript">
+    $(function() {
+        let i = 0;
+        let xAxisValues = []
+        let yAxisValues = []
+
+        let resObj = {
+            'RN ten Doeschate': 3,
+            'J Yadav': 4.1,
+            'R Ashwin': 5.6,
+            'Parvez Rasool': 6.2,
+            'Sandeep Sharma': 6.96
+
+        }
+
+        for (key in resObj) {
+            xAxisValues.push(key)
+            yAxisValues.push(resObj[key])
+        }
+
+    $('#container4').highcharts( {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Top-Economic Bowlers in 2015'
+        },
+       
+        accessibility: {
+            announceNewData: {
+                enabled: true
+            }
+        },
+        xAxis: {
+            type: 'category'
+        },
+        yAxis: {
+            title: {
+                text: 'Economy'
+            }
+
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            series: {
+                borderWidth: 0,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.y:1f}'
+                }
+            }
+        },
+        
+        series: [
+            {
+                colorByPoint: true,
+                
+                data: [
+                    
+                    {
+                        name: xAxisValues[i],
+                    
+                        y: yAxisValues[i],
+                        drilldown: xAxisValues[i]
+                    },
+                    
+                    {
+                        name: 'J Yadav',
+                        y: yAxisValues[1],
+                        drilldown: 'J Yadav'
+                    },
+                    {
+                        name: 'R Ashwin',
+                        y: yAxisValues[2],
+                        drilldown: 'R Ashwin'
+                    },
+                    {
+                        name: 'Parvez Rasool',
+                        y: yAxisValues[3],
+                        drilldown: 'Parvez Rasool', 
+                         
+                    },
+                    {
+                        name: 'Sandeep Sharma',
+                        y: yAxisValues[4],
+                        drilldown: 'Sandeep Sharma'
+                    },
+                ]
+            }
+        ],
+    });
+    });
 </script>
 
 </body>

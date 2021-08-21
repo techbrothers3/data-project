@@ -1,25 +1,34 @@
 const csvtojson = require('csvtojson');
-const csvfilepath =  "/home/mohammed/Documents/muaaz/data-project/archive/matches.csv";
-csvtojson()
-.fromFile(csvfilepath)
-.then((json) => {
-    // console.log(json);
-    console.log(myFunction(json));
-})
+// function init() {
+
+    const csvfilepath =  "/home/mohammed/Documents/muaaz/data-project/archive/matches.csv";
+    csvtojson()
+    .fromFile(csvfilepath)
+    .then((json) => {
+        // console.log(json);
+        console.log(myFunction(json));
+    })
+// }
+
+// let resJson = {}
+
 function myFunction(json) {
-    let map = {};
+    let m= {};
     
     for(let i = 0; i<json.length; i++) {
-        if (map[json[i].winner] != undefined) {
-            var count = map[json[i].winner];
+        if (m[json[i].winner] != undefined) {
+            var count = m[json[i].winner];
             count++;
-            map[json[i].winner] = count;
+            m[json[i].winner] = count;
         } else {
             if (json[i].winner != '') {
-                map[json[i].winner] = 1;
+                m[json[i].winner] = 1;
             }
         }
         
     }
-    return map;
+    // resJson = m;
+    return m;
 }
+
+// init()
